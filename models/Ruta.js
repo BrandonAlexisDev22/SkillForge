@@ -1,25 +1,28 @@
-'use strict'
+'use strict';
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const RouteSchema = Schema({
+const RouteSchema = Schema(
+  {
     Titulo: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     Descripcion: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
 
     Recurso: {
-        type:Schema.ObjectId,
-        ref: 'Recurso',
+      type: Schema.ObjectId,
+      ref: 'Recurso',
     },
 
     Usuario: {
-        type: Schema.ObjectId,
-        ref: 'Usuario'
+      type: Schema.ObjectId,
+      ref: 'Usuario',
     },
-}, {timestaps: true});
+  },
+  { timestaps: true }
+);
 
-module.exports = mongoose.model('Ruta',RouteSchema);
+module.exports = mongoose.model('Ruta', RouteSchema);

@@ -4,19 +4,15 @@ module.exports = {
     node: true,
     es2021: true,
   },
-  extends: [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "prettier",
-  ],
-  plugins: ["react"],
+  extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier'],
+  plugins: ['react'],
   parserOptions: {
     ecmaVersion: 12,
-    sourceType: "module", 
+    sourceType: 'module',
   },
   rules: {
-    "no-unused-vars": "warn",
-    "no-console": "off",
-    "react/prop-types": "off",
+    'no-unused-vars': 'warn',
+    'no-console': 'off',
+    'react/prop-types': 'off',
   },
 };
