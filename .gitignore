@@ -1,0 +1,17 @@
+# Node
+node_modules/
+.env
+dist/
+coverage/
+
+# Logs
+*.log
+npm-debug.log*
+
+# IDEs
+.vscode/
+.idea/
+.DS_Store
+
+# OS
+Thumbs.db
