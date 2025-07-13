@@ -10,7 +10,7 @@ const {
 
 //GET
 router.get('/', obtenerUsuarios); // FUNCIONA
-router.get('/:id', obtenerUsuario);// FUNCIONA
+router.get('/:id', obtenerUsuario); // FUNCIONA
 
 //POST
 router.post('/', CrearUsuario); // FUNCIONA
