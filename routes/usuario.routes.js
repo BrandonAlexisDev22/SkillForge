@@ -1,27 +1,26 @@
 const express = require('express');
 const router = express.Router();
-const Usuarios = require('../models/Usuarios.js');
+const {
+  obtenerUsuarios,
+  obtenerUsuario,
+  CrearUsuario,
+  editarInformacion,
+  eliminarUsuario,
+} = require('../controllers/usuario.controller.js');
 
-//GET OBTENER TODOS LOS USUARIOS
+//GET
+router.get('/', obtenerUsuarios); // FUNCIONA
+router.get('/:id', obtenerUsuario);// FUNCIONA
 
-router.get('/', async (req, res) => {
-  try {
-    const ObtenerUsuarios = await Usuarios.find();
-    let listaUsuarios = res.json(ObtenerUsuarios);
-    res.status(200).json(listaUsuarios);
-  } catch (e) {
-    res.status(500).json({ error: e });
-  }
-});
+//POST
+router.post('/', CrearUsuario); // FUNCIONA
 
-router.post('/', async (req, res) => {
-  try {
-    const nuevoUsuario = new Usuarios(req.body);
-    const usuarioGuardado = await nuevoUsuario.save();
-    res.status(201).json(usuarioGuardado);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
+//PUT
+router.put('/:id', editarInformacion); // FUNCIONA
+
+//DELETE
+router.delete('/:id', eliminarUsuario); // FUNCIONA
+
+// router.delete('/', eliminarTodosUsuarios);
 
 module.exports = router;
