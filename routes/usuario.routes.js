@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const verificarToken = require('../middleware/auth.middleware.js');
 const {
   obtenerUsuarios,
   obtenerUsuario,
@@ -9,17 +10,17 @@ const {
 } = require('../controllers/usuario.controller.js');
 
 //GET
-router.get('/', obtenerUsuarios); // FUNCIONA
-router.get('/:id', obtenerUsuario); // FUNCIONA
+router.get('/', verificarToken,obtenerUsuarios); // FUNCIONA
+router.get('/:id', verificarToken,obtenerUsuario); // FUNCIONA
 
 //POST
-router.post('/', CrearUsuario); // FUNCIONA
+router.post('/',CrearUsuario); // FUNCIONA
 
 //PUT
-router.put('/:id', editarInformacion); // FUNCIONA
+router.put('/:id', verificarToken,editarInformacion); // FUNCIONA
 
 //DELETE
-router.delete('/:id', eliminarUsuario); // FUNCIONA
+router.delete('/:id', verificarToken,eliminarUsuario); // FUNCIONA
 
 // router.delete('/', eliminarTodosUsuarios);
 
