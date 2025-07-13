@@ -33,7 +33,7 @@ exports.obtenerRutaPorId = async (req, res) => {
 };
 
 // Actualizar
-exports.actualizarRuta = async (req, res) => {
+exports.editarRuta = async (req, res) => {
   try {
     const ruta = await Ruta.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
