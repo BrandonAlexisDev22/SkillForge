@@ -33,7 +33,7 @@ exports.obtenerDiarioPorId = async (req, res) => {
 };
 
 // Actualizar
-exports.actualizarDiario = async (req, res) => {
+exports.editarDiario = async (req, res) => {
   try {
     const diario = await Diario.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!diario) return res.status(404).json({ error: 'Diario no encontrado' });

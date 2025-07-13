@@ -33,7 +33,7 @@ exports.obtenerRecursoPorId = async (req, res) => {
 };
 
 // Actualizar
-exports.actualizarRecurso = async (req, res) => {
+exports.editarRecurso = async (req, res) => {
   try {
     const recurso = await Recurso.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!recurso) return res.status(404).json({ error: 'Recurso no encontrado' });
