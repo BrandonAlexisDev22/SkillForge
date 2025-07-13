@@ -1,7 +1,8 @@
 'use strict';
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const RouteSchema = Schema(
+
+const RouteSchema = new Schema(
   {
     Titulo: {
       type: String,
@@ -11,18 +12,18 @@ const RouteSchema = Schema(
       type: String,
       required: true,
     },
-
-    Recurso: {
-      type: Schema.ObjectId,
-      ref: 'Recurso',
-    },
-
+    Recursos: [
+      {
+        type: Schema.ObjectId,
+        ref: 'Recurso',
+      },
+    ],
     Usuario: {
       type: Schema.ObjectId,
       ref: 'Usuario',
     },
   },
-  { timestaps: true }
+  { timestamps: true }
 );
 
 module.exports = mongoose.model('Ruta', RouteSchema);
