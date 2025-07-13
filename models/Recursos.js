@@ -15,10 +15,6 @@ const SourceSchema = Schema({
     type: String,
     required: true,
   },
-  Ruta: {
-    type: Schema.ObjectId,
-    ref: 'Ruta',
-  },
 });
 
 module.exports = mongoose.model('Recurso', SourceSchema);
