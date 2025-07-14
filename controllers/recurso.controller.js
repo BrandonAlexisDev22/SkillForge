@@ -1,4 +1,4 @@
-const Recurso = require('../models/recurso');
+const Recurso = require('../models/Recursos.js');
 
 // Crear
 exports.crearRecurso = async (req, res) => {

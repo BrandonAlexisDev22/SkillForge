@@ -1,4 +1,4 @@
-const Diario = require('../models/diario');
+const Diario = require('../models/Diario.js');
 
 // Crear
 exports.crearDiario = async (req, res) => {

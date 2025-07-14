@@ -1,4 +1,4 @@
-const Ruta = require('../models/ruta');
+const Ruta = require('../models/Ruta.js');
 
 // Crear
 exports.crearRuta = async (req, res) => {
@@ -21,10 +21,13 @@ exports.obtenerRutas = async (req, res) => {
   }
 };
 
-// Leer una
+// Leer una // FUNCIONA
 exports.obtenerRutaPorId = async (req, res) => {
   try {
-    const ruta = await Ruta.findById(req.params.id);
+    console.log(req.params)
+    const id  = req.params.id
+    const ruta = await Ruta.findOne({ _id: id });
+    console.log('Ruta', ruta)
     if (!ruta) return res.status(404).json({ error: 'Ruta no encontrada' });
     res.json(ruta);
   } catch (error) {
@@ -32,7 +35,7 @@ exports.obtenerRutaPorId = async (req, res) => {
   }
 };
 
-// Actualizar
+// Actualizar //FUNCIONA
 exports.editarRuta = async (req, res) => {
   try {
     const ruta = await Ruta.findByIdAndUpdate(req.params.id, req.body, {

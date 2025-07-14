@@ -1,7 +1,6 @@
 'use strict';
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
 const RouteSchema = new Schema(
   {
     Titulo: {
@@ -26,4 +25,4 @@ const RouteSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model('Ruta', RouteSchema);
+module.exports = mongoose.model('Ruta', RouteSchema,'rutasaprendizajes');
