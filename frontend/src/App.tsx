@@ -1,9 +1,7 @@
+import Header from "@/components/Header";
 function App() {
-  return (
-    <div>
-      <h1 className="bg-blue-500">Bienvenido a SkillForge Frontend</h1>
-    </div>
-  )
+  return <Header />
+
 }
 
 export default App
