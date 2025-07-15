@@ -4,6 +4,7 @@ node_modules/
 dist/
 coverage/
 
+
 # Logs
 *.log
 npm-debug.log*
@@ -15,3 +16,6 @@ npm-debug.log*
 
 # OS
 Thumbs.db
+
+#MarkDown
+notas.md
