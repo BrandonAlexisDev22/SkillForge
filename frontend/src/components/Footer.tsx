@@ -5,9 +5,7 @@ function Footer() {
       <div>
         {/* Footer */}
         <footer
-          className="text-center text-white"
-          style={{ backgroundColor: '#3f51b5' }}
-        >
+          className="text-center text-white bg-primary">
           {/* Grid container */}
           <div className="container">
             {/* Section: Links */}
