@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 function LoginForm() {
   return (
     <div
@@ -31,7 +32,7 @@ function LoginForm() {
 
         <button className="btn btn-primary w-100">Ingresar</button>
       <p className="register text-end">
-        <a href="#">No tienes una cuenta aun?</a>
+        No tienes una cuenta aun? <Link to="/registro">Regístrate aquí</Link>
       </p>
       </div>
     </div>

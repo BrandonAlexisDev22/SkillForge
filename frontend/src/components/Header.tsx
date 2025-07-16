@@ -1,18 +1,22 @@
+import { useLocation, Link } from "react-router-dom";
+
 function Header() {
+  const location = useLocation();
+
   const navLinks = [
-    { label: "Inicio", href: "#", active: true },
-    { label: "Regístrate", href: "#" },
-    { label: "Inicia Sesión", href: "#" },
-    { label: "Sobre Nosotros", href: "#" },
+    { label: "Inicio", href: "/" },
+    { label: "Regístrate", href: "/registro" },
+    { label: "Inicia Sesión", href: "/login" },
+    { label: "Sobre Nosotros", href: "/nosotros" },
   ];
 
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-primary text-light p-3" aria-label="Barra de navegación principal">
         <div className="container-fluid">
-          <a className="navbar-brand fw-bold fs-3 text-white" href="#">
+          <Link className="navbar-brand fw-bold fs-3 text-white" to="/">
             SKILLFORGE
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -27,15 +31,17 @@ function Header() {
 
           <div className="collapse navbar-collapse justify-content-end gap-3" id="navbarNav">
             <div className="navbar-nav fs-5">
-              {navLinks.map(({ label, href, active }) => (
-                <a
+              {navLinks.map(({ label, href }) => (
+                <Link
                   key={label}
-                  className={`nav-link ${active ? "active text-white" : "text-white-50"}`}
-                  aria-current={active ? "page" : undefined}
-                  href={href}
+                  className={`nav-link ${
+                    location.pathname === href ? "active text-white" : "text-white-50"
+                  }`}
+                  aria-current={location.pathname === href ? "page" : undefined}
+                  to={href}
                 >
                   {label}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -45,5 +51,5 @@ function Header() {
     </>
   );
 }
-export default Header;
 
+export default Header;
