@@ -1,14 +1,14 @@
 import Header from '@/components/Header';
-import Hero  from '@/components/Hero';
+import FormLogin from '@/components/FormLogin'
 import Footer  from '@/components/Footer';
-const Home = () => {
+const Login = () => {
   return (
     <>
     <Header />
-    <Hero />
+    <FormLogin />
     <Footer />
     </>
   )
 }
 
-export default Home;
+export default Login

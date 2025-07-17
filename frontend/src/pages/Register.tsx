@@ -1,14 +1,14 @@
 import Header from '@/components/Header';
-import Hero  from '@/components/Hero';
+import FormRegister from '@/components/FormRegister'
 import Footer  from '@/components/Footer';
-const Home = () => {
+const Register = () => {
   return (
     <>
     <Header />
-    <Hero />
+    <FormRegister />
     <Footer />
     </>
   )
 }
 
-export default Home;
+export default Register
