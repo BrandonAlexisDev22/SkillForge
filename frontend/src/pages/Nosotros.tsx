@@ -10,7 +10,7 @@ const Nosotros = () => {
           <div className="container">
             <div className="row align-items-center">
               <div className="col-md-6">
-                <h1 className="display-4 fw-bold mb-3">Sobre SkillForfge</h1>
+                <h1 className="display-4 fw-bold mb-3">Sobre SkillForge</h1>
                 <p className="lead">
                   Transformando la educación a través de rutas de aprendizaje personalizadas
                 </p>
@@ -136,10 +136,10 @@ const Nosotros = () => {
               </div>
               <div className="col-md-6">
                 <img
-                  src="https://static.vecteezy.com/system/resources/previews/022/841/114/non_2x/chatgpt-openai-logo-icon-free-png.png"
+                  src="https://img.icons8.com/?size=512&id=rHpveptSuwDz&format=png"
                   alt="Tecnología"
                   className="img-fluid rounded"
-                  style={{ maxHeight: '400px', objectFit: 'contain' }}
+                  style={{ maxHeight: '300px', objectFit: 'cover' }}
                 />
               </div>
             </div>
