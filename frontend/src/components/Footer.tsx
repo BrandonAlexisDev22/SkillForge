@@ -1,7 +1,6 @@
 function Footer() {
   return (
     <>
-      {/* Remove the container if you want to extend the Footer to full width. */}
       <div>
         {/* Footer */}
         <footer
@@ -13,7 +12,7 @@ function Footer() {
               {/* Grid row */}
               <div className="row text-center d-flex justify-content-center pt-5">
                 {/* Grid columns */}
-                {['About us', 'Products', 'Awards', 'Help', 'Contact'].map(
+                {['Registrarse', 'Iniciar Sesion', 'Sobre Nosotros'].map(
                   (label, idx) => (
                     <div className="col-md-2" key={idx}>
                       <h6 className="text-uppercase font-weight-bold">
