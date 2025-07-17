@@ -1,10 +1,18 @@
+import { useLocation, Link } from "react-router-dom";
+
 function Footer() {
+  const location = useLocation();
+  const footerLinks = [
+    { label: "Regístrate", href: "/registro" },
+    { label: "Inicia Sesión", href: "/inicio-sesion" },
+    { label: "Sobre Nosotros", href: "/nosotros" }
+  ];
+
   return (
     <>
       <div>
         {/* Footer */}
-        <footer
-          className="text-center text-white bg-primary">
+        <footer className="text-center text-white bg-primary">
           {/* Grid container */}
           <div className="container">
             {/* Section: Links */}
@@ -12,17 +20,19 @@ function Footer() {
               {/* Grid row */}
               <div className="row text-center d-flex justify-content-center pt-5">
                 {/* Grid columns */}
-                {['Registrarse', 'Iniciar Sesion', 'Sobre Nosotros'].map(
-                  (label, idx) => (
-                    <div className="col-md-2" key={idx}>
-                      <h6 className="text-uppercase font-weight-bold">
-                        <a href="#!" className="text-white">
-                          {label}
-                        </a>
-                      </h6>
-                    </div>
-                  )
-                )}
+                {footerLinks.map(({ label, href }, idx) => (
+                  <div className="col-md-2" key={idx}>
+                    <Link
+                      className={`nav-link ${
+                        location.pathname === href ? "active text-white" : "text-white-50"
+                      }`}
+                      aria-current={location.pathname === href ? "page" : undefined}
+                      to={href}
+                    >
+                      {label}
+                    </Link>
+                  </div>
+                ))}
               </div>
             </section>
             <hr className="my-5" />
