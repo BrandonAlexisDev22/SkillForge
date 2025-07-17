@@ -4,7 +4,7 @@ function Header() {
   const location = useLocation();
 
   const navLinks = [
-    { label: "Inicio", href: "/inicio" },
+    { label: "Inicio", href: "/" },
     { label: "Regístrate", href: "/registro" },
     { label: "Inicia Sesión", href: "/inicio-sesion" },
     { label: "Sobre Nosotros", href: "/nosotros" },
