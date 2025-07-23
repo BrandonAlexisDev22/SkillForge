@@ -45,7 +45,7 @@ function AuthForm({
     >
       <form
         onSubmit={handleSubmit}
-        className="bg-light p-4 rounded shadow d-flex flex-column gap-4 my-5"
+        className="bg-light p-4 rounded shadow d-flex flex-column gap-4 my-5 needs-validation"
         style={{width,maxWidth,height }}
       >
         <h2 className="text-center mb-4">{title}</h2>
