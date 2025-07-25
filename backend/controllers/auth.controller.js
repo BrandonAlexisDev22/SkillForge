@@ -32,9 +32,8 @@ async function register(req, res) {
 }
 // Login de usuario
 async function login(req, res) {
-  try {
+  try {                                                                                                                          
     const { Email, Contraseña } = req.body;
-
     // 1. Buscar al usuario por su email
     const usuarioEncontrado = await Usuario.findOne({ Email });
     if (!usuarioEncontrado) {
