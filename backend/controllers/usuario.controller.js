@@ -12,9 +12,10 @@ async function CrearUsuario(req, res) {
   try {
     const nuevoUsuario = new Usuario(req.body);
     await nuevoUsuario.save();
-    res.status(200).json(nuevoUsuario);
+    res.status(200).json({ mensaje: 'Usuario creado correctamente' });
   } catch (e) {
-    res.status(500).json({ error: e });
+    console.error('Error al crear usuario:', e.message);
+    res.status(500).json({ error: e.message });
   }
 }
 
