@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import AuthForm from './authForm';
+import { redirect } from "react-router";
 interface LoginResponse {
   token?: string;
   usuario?: {
@@ -30,9 +31,7 @@ function LoginForm() {
     setSuccess(false);
 
     try {
-      const url = 'http://localhost:5000/auth/login/';
-      console.log('🔗 Intentando conectar a:', url);
-      
+      const url = 'http://localhost:5000/auth/login/';      
       const res = await fetch(url, {
         method: 'POST',
         headers: {
@@ -43,11 +42,6 @@ function LoginForm() {
           Contraseña: data.password  
         })
       });
-      const contentType = res.headers.get('content-type');
-      
-      console.log('📄 Status:', res.status);
-      console.log('📋 Content-Type:', contentType);
-      
       const loginResult: LoginResponse = await res.json();
       console.log('Respuesta del servidor:', loginResult);
       if (!res.ok) {
@@ -79,9 +73,7 @@ function LoginForm() {
 
       setSuccess(true);
       setTimeout(() => {
-        if (typeof window !== 'undefined') {
-          window.location.href = '/dashboard';
-        }
+        redirect('/my-learning')
       }, 1500);
 
     } catch (e: unknown) {
