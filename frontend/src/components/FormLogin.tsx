@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import AuthForm from './authForm';
-import { redirect } from "react-router";
+import { useRedirectToLearning } from '@/hooks/useRedirect';
 interface LoginResponse {
   token?: string;
   usuario?: {
@@ -25,6 +25,7 @@ function LoginForm() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
   const [success, setSuccess] = useState<boolean>(false);
+  const redirect = useRedirectToLearning();
   const handleLogin = async (data: { email: string; password: string }) => {
     setIsLoading(true);
     setError('');
@@ -70,12 +71,7 @@ function LoginForm() {
       if (userData) {
         localStorage.setItem('userData', JSON.stringify(userData));
       }
-
       setSuccess(true);
-      setTimeout(() => {
-        redirect('/my-learning')
-      }, 1500);
-
     } catch (e: unknown) {
       console.error('Error de login:', e);
       
@@ -108,6 +104,7 @@ function LoginForm() {
         buttonText={isLoading ? "Ingresando..." : "Ingresar"}
         linkText="¿No tienes una cuenta aún?"
         linkTo="/registro"
+        buttonFunction={redirect}
         onSubmit={handleLogin}
       />
       

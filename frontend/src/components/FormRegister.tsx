@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import AuthForm from './authForm';
-
+import { useRedirectToLearning } from '@/hooks/useRedirect';
 interface ValidationErrors {
   nameUser?: string;
   surnameUser?: string;
@@ -19,7 +19,7 @@ function Register() {
   const [registroIntentado, setRegistroIntentado] = useState(false);
   const [errors, setErrors] = useState<ValidationErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-
+  const redirect = useRedirectToLearning();
   // Función para validar email
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -327,6 +327,7 @@ function Register() {
       buttonText={isSubmitting ? "Registrando..." : "Registrarse"}
       linkText="¿Ya tienes una cuenta?"
       linkTo="/inicio-sesion"
+      buttonFunction={redirect}
       onSubmit={handleRegister}
     />
   );

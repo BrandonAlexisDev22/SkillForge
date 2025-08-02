@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 
 type AuthFormProps = {
   title: string;
@@ -13,6 +13,7 @@ type AuthFormProps = {
   buttonText: string;
   linkText: string;
   linkTo: string;
+  buttonFunction: () => void;
   onSubmit: (data: { email: string; password: string }) => void;
 };
 
@@ -28,6 +29,7 @@ function AuthForm({
   buttonText,
   linkText,
   linkTo,
+  buttonFunction,
   onSubmit,
 }: AuthFormProps) {
   const [email, setEmail] = useState('');
@@ -77,7 +79,7 @@ function AuthForm({
           />
         </div>
         {extraFields}
-        <button type="submit" className="btn btn-primary w-100 fs-5">
+        <button type="submit" className="btn btn-primary w-100 fs-5" onClick={buttonFunction}>
           {buttonText}
         </button>
 

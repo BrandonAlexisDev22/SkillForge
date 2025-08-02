@@ -1,21 +1,34 @@
 import { useLocation, Link } from "react-router-dom";
 
-function Header() {
-  const location = useLocation();
+interface NavLink {
+  label: string;
+  href: string;
+}
 
-  const navLinks = [
+interface HeaderProps {
+  navLinks?: NavLink[];
+  brandText?: string;
+  brandHref?: string;
+}
+
+function Header({ 
+  navLinks = [
     { label: "Inicio", href: "/" },
     { label: "Regístrate", href: "/registro" },
     { label: "Inicia Sesión", href: "/inicio-sesion" },
     { label: "Sobre Nosotros", href: "/nosotros" },
-  ];
+  ],
+  brandText = "SKILLFORGE",
+  brandHref = "/"
+}: HeaderProps) {
+  const location = useLocation();
 
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-primary text-light p-3" aria-label="Barra de navegación principal">
         <div className="container-fluid">
-          <Link className="navbar-brand fw-bold fs-3 text-white" to="/">
-            SKILLFORGE
+          <Link className="navbar-brand fw-bold fs-3 text-white" to={brandHref}>
+            {brandText}
           </Link>
           <button
             className="navbar-toggler"
